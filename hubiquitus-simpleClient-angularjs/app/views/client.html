@@ -1,0 +1,19 @@
+<h2>Send a message</h2>
+<form name="sendForm" class="" ng-submit="send()">
+	<div class="form-group" ng-class="{'has-error': sendForm.actor.$dirty && sendForm.actor.$invalid}">
+		<label for="actor">Actor</label>
+		<input name="actor" type="text" class="form-control" placeholder="Actor" ng-model="message.actor" required>
+	</div>
+    <div class="form-group">
+		<label for="content">Content</label>
+		<textarea name="content" type="text" class="form-control" placeholder="Content (JSON format)" ng-model="message.content"></textarea>
+	</div>
+    <button class="btn btn-lg btn-primary" type="submit" ng-disabled="sendForm.$invalid">Send</button>
+    <div class="alert alert-success" ng-show="message.sent">Message sent !</div>
+</form>
+
+
+<h2>Messages reçus</h2>
+<p ng-repeat="mess in messages">
+	{{mess}}
+</p>

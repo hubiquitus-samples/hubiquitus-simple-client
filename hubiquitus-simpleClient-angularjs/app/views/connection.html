@@ -1,0 +1,12 @@
+<form name="loginForm" class="form-signin" role="form" ng-submit="connect()">
+    <h2>Connection</h2>
+    <div class="form-group" ng-class="{'has-error': loginForm.login.$dirty && loginForm.login.$invalid}">
+    	<input name="login" type="text" class="form-control"  placeholder="hubiquitus login" ng-model="login" required>
+    </div>
+    <div class="form-group" ng-class="{'has-error': loginForm.server.$dirty && loginForm.server.$invalid}">
+    	<input name="server" type="text" class="form-control" placeholder="http://server:port/hubiquitus" ng-model="server" ng-pattern="/^http\:\/\/([a-zA-Z0-9\-_\.\:]+)*\/hubiquitus/" required>
+    </div>
+    <div class="alert alert-danger" ng-show="loginForm.server.$dirty && loginForm.server.$invalid">Invalid server format</div>
+    <button class="btn btn-lg btn-primary" type="submit" ng-disabled="loginForm.$invalid">Connect</button>
+    <div class="alert alert-danger" ng-show="false"></div>
+</form>
